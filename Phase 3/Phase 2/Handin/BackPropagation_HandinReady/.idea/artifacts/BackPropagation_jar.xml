@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="BackPropagation:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/BackPropagation_jar</output-path>
-    <root id="archive" name="NeuralNetwork.jar">
-      <element id="module-output" name="NeuralNetwork" />
-    </root>
-  </artifact>
-</component>
