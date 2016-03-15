@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="12.2">
+  <zoom_level>8</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1080</x>
+      <y>152</y>
+      <w>168</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>RubixCube::Slice
+--
+-cube_size: int
+-axis: int
+-slice_num: int
+-is_outer: boolean
+-face0: int
+-face1: int
+-face2: int
+-face3: int
+--
+#Slice(axis_num: int, s: int, size: int)
+#get_move(face_id: int): int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>240</x>
+      <y>304</y>
+      <w>376</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>Searches::SearchFacade
+--
+-goal: Rubix
+--
+#search(cube_size: int, search_to_perform: int, cube: Rubix): SearchNode</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>232</x>
+      <y>496</y>
+      <w>240</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Searches::BreadthFirstSearch
+--
+#BFS(start: Rubix, goal: Rubix): SearchNode</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>488</x>
+      <y>496</y>
+      <w>240</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Searches::AStarSearch
+--
+#ASS(start: Rubix, goal: Rubix): SearchNode</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>232</x>
+      <y>640</y>
+      <w>504</w>
+      <h>224</h>
+    </coordinates>
+    <panel_attributes>Searches.Searchable::SearchNode
+--
+-parent: SearchNode
+-cube: Rubix
+-dir: Direction
+-axis: int
+-slice: int
+-cube_size: int
+-g: double
+-h: double
+-f: double
+-cw: Direction
+-ccw: Direction
+--
+#SearchNode(size: int, c: Rubix)
+#SearchNode(size: int, axis_num: int, d: Direction, slice_num: int, p: SearchNode, parent_g: double
+#generateChildren(): LinkedList&lt;SearchNode&gt;
+#moveTaken():LinkedList&lt;Integer&gt;
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>240</x>
+      <y>72</y>
+      <w>168</w>
+      <h>192</h>
+    </coordinates>
+    <panel_attributes>main
+--
+#main(args: String[]): void
+#unitTest(): void
+#userCube(): void
+#solveCube(cube: Rubix): void
+#newCube(): Rubix
+#rotateCube(cube: Rubix): void
+#expirements(): void
+#randomRotate(cube: Rubix): void
+#getStringInput(): String
+#getInput(): int
+#printTuple(tuple: LinkedList&lt;SearchNode&gt;): void
+#intro(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>768</x>
+      <y>152</y>
+      <w>168</w>
+      <h>312</h>
+    </coordinates>
+    <panel_attributes>RubixCube::Rubix
+--
+-cube_size: int
+-heuristic: double
+-face0: Colour[]
+-face1: Colour[]
+-face2: Colour[]
+-face3: Colour[]
+-face4: Colour[]
+-face5: Colour[]
+-cw: Direction
+-ccw: Direction
+-X1: ArrayList&lt;Slice&gt;
+-X2: ArrayList&lt;Slice&gt;
+-X3: ArrayList&lt;Slice&gt;
+--
+#Rubix(size: int)
+#Rubix(cube: Rubix)
+#updateKey(): void
+#compareTo(one: Colour[][], two: Colour[][]): boolean
+#rotate(axis: int, dir: Direction, slice: int): void
+#getFaceValue(face_id: int, row: int, col: int): Colour
+#getFace(face_id: int): Colour[][]
+#rotateFace(face: Colour[][], dir: Direction): Colour[][]
+#calcHeuristic(): double</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>512</x>
+      <y>64</y>
+      <w>144</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>Enums::Direction
+--
+-CLOCKWISE
+-COUNTERCLOCKWISE</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>664</x>
+      <y>64</y>
+      <w>96</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>Enums::Colour
+--
+-W
+-B
+-G
+-O
+-Y
+-R</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>16</x>
+      <y>112</y>
+      <w>168</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>FileWriter
+--
+writer: PrintWriter
+--
+#FileWriter(name: String)
+#newLine(): void
+#writeToFile(to_write: String): void
+#closeWriter(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>784</x>
+      <y>496</y>
+      <w>280</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Searches.Searchable::SearchNodeComparator
+--
+#compare(one: SearchNode, two: SearchNode): int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>288</x>
+      <y>240</y>
+      <w>82</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+     calls</panel_attributes>
+    <additional_attributes>48;64;48;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>304</x>
+      <y>344</y>
+      <w>82</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+     calls</panel_attributes>
+    <additional_attributes>48;152;48;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>496</x>
+      <y>344</y>
+      <w>82</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+     calls</panel_attributes>
+    <additional_attributes>48;152;48;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>336</x>
+      <y>512</y>
+      <w>160</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=-
+calls</panel_attributes>
+    <additional_attributes>144;72;144;72;24;72;24;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>456</x>
+      <y>512</y>
+      <w>186</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=-
+     calls</panel_attributes>
+    <additional_attributes>24;72;152;72;152;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>456</x>
+      <y>560</y>
+      <w>40</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&gt;&gt;-</panel_attributes>
+    <additional_attributes>24;24;24;80</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>704</x>
+      <y>480</y>
+      <w>96</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+uses</panel_attributes>
+    <additional_attributes>80;40;24;40</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>384</x>
+      <y>120</y>
+      <w>400</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;
+     uses</panel_attributes>
+    <additional_attributes>24;24;144;24;144;144;384;144</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>592</x>
+      <y>240</y>
+      <w>140</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=-
+     uses</panel_attributes>
+    <additional_attributes>24;96;104;96;104;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>712</x>
+      <y>280</y>
+      <w>396</w>
+      <h>480</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+     uses</panel_attributes>
+    <additional_attributes>224;24;360;24;360;464;24;464</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>288</x>
+      <y>8</y>
+      <w>72</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+     GUI</panel_attributes>
+    <additional_attributes>40;24;40;64</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.Database</type>
+    <coordinates>
+      <x>56</x>
+      <y>320</y>
+      <w>88</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>A_File.txt</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>160</x>
+      <y>120</y>
+      <w>96</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+uses</panel_attributes>
+    <additional_attributes>24;40;80;40</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>40</x>
+      <y>184</y>
+      <w>110</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+        writes to</panel_attributes>
+    <additional_attributes>56;136;56;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>912</x>
+      <y>184</y>
+      <w>184</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+uses</panel_attributes>
+    <additional_attributes>168;40;24;40</additional_attributes>
+  </element>
+</diagram>
